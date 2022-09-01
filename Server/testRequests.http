@@ -1,0 +1,27 @@
+
+# get methods
+
+# get all
+GET http://localhost:4000/api/ HTTP/1.1
+### 
+
+
+# get by id
+
+GET http://localhost:4000/api/63107d1c20515abada1725ba HTTP/1.1
+
+###
+
+
+#### posts methods ####
+
+
+POST http://localhost:4000/api/ HTTP/1.1
+content-type: application/json
+
+
+{
+    "title": "my first letter",
+    "count": 1,
+    "textContent":"Miss you, damn i am stupid, jesus :)"
+}
