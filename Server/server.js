@@ -27,26 +27,59 @@ app.use("/api", routes); // use the routes only if the path matches
 
 // connect to database
 
+// mongoose
+//   .connect(envVariables.MONGO_URI)
+//   .then(() => {
+//     // listen for requests
+
+//     // to listen without live updates use node server.js
+//     // to listen with updates install nodemon an use nodemon server.js
+
+//     // i've added a command named dev for nodemon, use npm run dev to start
+//     // the live server
+
+// app.listen(envVariables.PORT, () => {
+//   console.log(
+//     `connected to database & listening for requests on port ${envVariables.PORT} !`
+//   );
+// });
+// })
+//   .catch((error) => {
+//     console.log("could not connect to database error object:", error);
+//   });
+
+// connect locally
+
 mongoose
-  .connect(envVariables.MONGO_URI)
-  .then(() => {
-    // listen for requests
+  .connect(
+    "mongodb://localhost:27017",
+    {
+      useNewUrlParser: true,
+      // useFindAndModify: false,
+      useUnifiedTopology: true,
+    }
+    // (argument) => {
+    //   app.listen(envVariables.PORT, (argument) => {
+    //     console.log(
+    //       `connected to database & listening for requests on port ${envVariables.PORT} ! ${argument}`
+    //     );
+    //   });
+    // }
+  )
+  .then((suc) => {
+    console.log("look at mee i have connected to the database idk why,", suc);
 
-    // to listen without live updates use node server.js
-    // to listen with updates install nodemon an use nodemon server.js
-
-    // i've added a command named dev for nodemon, use npm run dev to start
-    // the live server
-
-    app.listen(envVariables.PORT, () => {
+    app.listen(envVariables.PORT, async () => {
       console.log(
         `connected to database & listening for requests on port ${envVariables.PORT} !`
       );
     });
   })
-  .catch((error) => {
-    console.log("could not connect to database error object:", error);
+  .catch((err) => {
+    console.log("i have an error father", err);
   });
+
+// connect locally
 
 // README --->!!!!
 

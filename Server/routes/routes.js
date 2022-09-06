@@ -13,19 +13,19 @@ const router = express.Router();
 //   response.json({ message: "Wellcome to this app" });
 // });
 
-// GET all workouts
+// GET all letters
 router.get("/", getLetters);
 
-// GET a single workout
+// GET a single letter
 router.get("/:id", getLetter);
 
-// POST a new workout
+// POST a new letter
 router.post("/", createLetter);
 
-// DELETE a workout
+// DELETE a letter
 router.delete("/:id", deleteLetter);
 
-// UPDATE a workout
+// UPDATE a letter
 router.patch("/:id", updateLetter);
 
 module.exports = router;
